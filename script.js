@@ -81,8 +81,9 @@ gdrivefiles.addEventListener('click',(e)=>{
     }
     
     function handleAuthResult(authResult) {
+      console.log(authResult)
       if (authResult && !authResult.error) {
-        console.log(authResult)
+        
         oauthToken = authResult.access_token;
         createPicker();
       }
