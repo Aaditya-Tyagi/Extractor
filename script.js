@@ -126,18 +126,22 @@ var dropboxfiles=document.querySelector("#dropbox");
 dropboxfiles.addEventListener("click",(e)=>{
    e.preventDefault();
    console.log(" picking dropbox files ");
-   Dropbox.choose(options);
    options={
-     success:function(files){
-       alert("here is the file link:"+ files[0].link)
-     },
-     multiselect:true,
-     folderselect:true,
+    success:function(files){
+      alert("here is the file link:"+ files[0].link)
+    },
+    multiselect:true,
+    folderselect:true,
 
-   }
+  }
+   Dropbox.choose(options);
+   
    file={
 
    }
+   //	442x3rc3j1wodat
+   //	lji16y339ytg5ud
+   // access token sl.BHfoUdB21sc5R-O7Af6n-8FVra4a31lLMFMl2nhX37XOj0yiHjPxRedlONMlrGXolqals7wEyujz6EQJ8rcThytgygU1m28pgcqLYPKLyGwcHNCESVSCZZo-mpuIO-k_UrEZtOs
 });
 
 
