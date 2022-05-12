@@ -1,4 +1,5 @@
-console.log("connected!!");
+// console.log("connected!!");
+
 
 var dragDOM=document.querySelector(".drag-drop");
 dragDOM.addEventListener("dragover",function(e){
@@ -38,18 +39,16 @@ window.addEventListener("drop",function(e){
 //butoon selecting files
 var clickbutton=document.querySelector("#choose-btn");
 clickbutton.addEventListener(onclick,(e)=>{
-   var pickedfiles= document.getElementById("fileinput").click();
-   const type = pickedfiles.type;
-    console.log(type);
-})
-
+  // var pickedfiles= document.getElementById("fileinput").click();
+   
+});
 //gdrive methods
 var gdrivefiles=document.querySelector("#gdrive");
 gdrivefiles.addEventListener('click',(e)=>{
     e.preventDefault();
     
-    var developerKey = 'AIzaSyB77CW0lfJg9V098yZTHtz31Ew0Av_KVWE';
-    var clientId = '727290649472-974tvfa13r6vehdoso7tad1ac90dl179.apps.googleusercontent.com'
+    var developerKey = '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';
+    var clientId = '727290649472-sotlu6lph22d11u5d75sc35vk87q0rnc.apps.googleusercontent.com'
     var appId = '727290649472';
     var scope = ['https://www.googleapis.com/auth/drive.file'];
  
@@ -81,6 +80,7 @@ gdrivefiles.addEventListener('click',(e)=>{
     }
     
     function handleAuthResult(authResult) {
+      console.log("auth result")
       console.log(authResult)
       if (authResult && !authResult.error) {
         
@@ -125,6 +125,7 @@ gdrivefiles.addEventListener('click',(e)=>{
 //Dropbox File methods
 var dropboxfiles=document.querySelector("#dropbox");
 dropboxfiles.addEventListener("click",(e)=>{
+  
    e.preventDefault();
    console.log(" picking dropbox files ");
    options={
@@ -137,9 +138,6 @@ dropboxfiles.addEventListener("click",(e)=>{
   }
    Dropbox.choose(options);
    
-   file={
-
-   }
    //	442x3rc3j1wodat
    //	lji16y339ytg5ud
    // access token sl.BHfoUdB21sc5R-O7Af6n-8FVra4a31lLMFMl2nhX37XOj0yiHjPxRedlONMlrGXolqals7wEyujz6EQJ8rcThytgygU1m28pgcqLYPKLyGwcHNCESVSCZZo-mpuIO-k_UrEZtOs
