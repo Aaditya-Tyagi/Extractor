@@ -81,8 +81,8 @@ gdrivefiles.addEventListener('click',(e)=>{
     }
     
     function handleAuthResult(authResult) {
-      console.log(authResult)
       if (authResult && !authResult.error) {
+        console.log(authResult)
         oauthToken = authResult.access_token;
         createPicker();
       }
@@ -122,7 +122,6 @@ gdrivefiles.addEventListener('click',(e)=>{
 );
 
 //Dropbox File methods
-Dropbox.choose(options);
 var dropboxfiles=document.querySelector("#dropbox");
 dropboxfiles.addEventListener("click",(e)=>{
    e.preventDefault();
