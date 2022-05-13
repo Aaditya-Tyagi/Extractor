@@ -23,7 +23,7 @@
 
 	(() => {
 
-		const appContainer = document.getElementById("parent-container");
+		const appContainer = document.getElementById("list-container");
 		const fileInput = document.getElementById("fileinput");
 		const encodingInput = "utf-8";
 		const fileInputButton = document.getElementById("choose-btn");
@@ -39,7 +39,7 @@
 		appContainer.onclick = downloadFile;
 		fileInputButton.onclick = () => fileInput.dispatchEvent(new MouseEvent("click"));
 	//	selectInflateImplementation();
-
+		
 		async function downloadFile(event) {
 			const target = event.target;
 			
@@ -99,7 +99,7 @@
 			if (entries && entries.length) {
 				fileList.classList.remove("empty");
 				const filenamesUTF8 = Boolean(!entries.find(entry => !entry.filenameUTF8));
-				const encrypted = Boolean(entries.find(entry => entry.encrypted));
+				// const encrypted = Boolean(entries.find(entry => entry.encrypted));
 				encodingInput.value = filenamesUTF8 ? "utf-8" : filenameEncoding || "cp437";
 				encodingInput.disabled = filenamesUTF8;
 				//passwordInput.value = "";
@@ -110,6 +110,7 @@
 
 		function refreshList() {
 			const newFileList = fileList.cloneNode();
+			document.getElementById("parent-container").style.display="none";
 			entries.forEach((entry, entryIndex) => {
 				const li = document.createElement("li");
 				const filenameContainer = document.createElement("span");
@@ -117,6 +118,7 @@
 				filenameContainer.classList.add("filename-container");
 				li.appendChild(filenameContainer);
 				filename.classList.add("filename");
+				// filename.onclick = download(entry.filename);
 				filename.dataset.entryIndex = entryIndex;
 				filename.textContent = filename.title = entry.filename;
 				filename.title = `${entry.filename}\n  Last modification date: ${entry.lastModDate.toLocaleString()}`;
@@ -129,10 +131,9 @@
 			});
 			fileList.replaceWith(newFileList);
 			fileList = newFileList;
+			$('#jstree_demo_div').jstree();  
 		}
-
 		async function download(entry, li, a) {
-			console.log(a)
 			if (!li.classList.contains("busy")) {
 				const unzipProgress = document.createElement("progress");
 				li.appendChild(unzipProgress);
