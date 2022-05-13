@@ -212,3 +212,18 @@ nav{
     top: 90;
     left: 50%;
 }
+
+.before{
+    display: none;
+    height: 0vh;
+    width: 0vw;
+}
+
+.more_formats{
+    display: none;
+}
+
+#list-container{
+    
+}
+
