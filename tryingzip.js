@@ -111,6 +111,7 @@
 		function refreshList() {
 			const newFileList = fileList.cloneNode();
 			document.getElementById("parent-container").style.display="none";
+			document.querySelector(".form-label").innerHTML=(selectedFile.name)
 			entries.forEach((entry, entryIndex) => {
 				const li = document.createElement("li");
 				const filenameContainer = document.createElement("span");
@@ -118,7 +119,7 @@
 				filenameContainer.classList.add("filename-container");
 				li.appendChild(filenameContainer);
 				filename.classList.add("filename");
-				// filename.onclick = download(entry.filename);
+				filename.onclick = download(entry.filename);
 				filename.dataset.entryIndex = entryIndex;
 				filename.textContent = filename.title = entry.filename;
 				filename.title = `${entry.filename}\n  Last modification date: ${entry.lastModDate.toLocaleString()}`;
@@ -132,6 +133,10 @@
 			fileList.replaceWith(newFileList);
 			fileList = newFileList;
 			$('#jstree_demo_div').jstree();  
+			let objectUrl = URL.createObjectURL(selectedFile)
+			let link = document.getElementById('download-btn');
+			link.download = selectedFile.name;
+			link.href=objectUrl
 		}
 		async function download(entry, li, a) {
 			if (!li.classList.contains("busy")) {
@@ -169,7 +174,10 @@
 				}
 			}
 		}
+	
+			
 
+		
 	})();
 
 })();

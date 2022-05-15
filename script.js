@@ -1,12 +1,19 @@
 // console.log("connected!!");
 
+//more formats
+document.querySelector(".more_btn").addEventListener("click",(e)=>{
+  e.preventDefault();
+ document.querySelector("#more_formats").classList.remove("more_formats");
+ document.querySelector(".more_btn").classList.add("more_formats")
+});
+
 
 var dragDOM=document.querySelector(".drag-drop");
 dragDOM.addEventListener("dragover",function(e){
-    e.preventDefault();
-    dragDOM.classList.remove("drag-drop");
-    dragDOM.classList.add("dropping"); 
-    console.log("entering!");
+      e.preventDefault();
+      dragDOM.classList.remove("drag-drop");
+      dragDOM.classList.add("dropping"); 
+      console.log("entering!");
 });
 
 dragDOM.addEventListener("dragleave",function(){
@@ -18,7 +25,7 @@ dragDOM.addEventListener("drop",(e)=>{
    e.preventDefault();
    const droppedfile=e.dataTransfer.files;
    const type=droppedfile.type;
-   console.log(type);
+   console.log(droppedfile);
    }
 )
 window.addEventListener("dragover",function(e){
