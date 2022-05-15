@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
     <title>Document</title>
 </head>
+
 <body>
     <nav><li></li></nav>
         <div id="parent-container">
@@ -44,27 +45,29 @@
                 <div class="h">Supported Formats:</div>
                 <div id="supported_formats">
                     <span class="initial">7z, zipx, rar, tar, exe, dmg, iso, zip, msi, nrg, gz, cab, bz2, wim, ace</span>
-                    <div class="more_formats">alz, ar, arc, arj, bin, cdi, chm, cpt, cpio, cramfs, crunch, deb, dd, dms, ext, fat, format, gpt, hfs, ihex, lbr, lzh, lzma, lzm, mbr, mdf, nsa, nds, nsis, ntfs, pit, pak, pdf, pp, qcow2, rpm, sar, squashfs, squeeze, sit, sitx, swf, udf, uefi, vdi, vhd, vmdk, warc, xar, xz, z, zoo, zi, jar</div>
-                    <a href="" class="more_btn">and 54 more</a>
+                    <div  id="more_formats"class="more_formats">alz, ar, arc, arj, bin, cdi, chm, cpt, cpio, cramfs, crunch, deb, dd, dms, ext, fat, format, gpt, hfs, ihex, lbr, lzh, lzma, lzm, mbr, mdf, nsa, nds, nsis, ntfs, pit, pak, pdf, pp, qcow2, rpm, sar, squashfs, squeeze, sit, sitx, swf, udf, uefi, vdi, vhd, vmdk, warc, xar, xz, z, zoo, zi, jar</div>
+                    <a href="" id="more_btn" class="more_btn">and 54 more</a>
                 </div>
                 <div class="features">
                     <p>Supports password-protected archives</p>
-                    <p>Can unpack multi-part archives (zip.001, rarr.part1. z01 , etc</p>
+                    <p>Can unpack multi-part archives (zip.001, rarr.part1. z01 , etc)</p>
                 </div>
             </div>
     </div>
     <input type="hidden" id="password-input" value=""  disabled>
-    <!-- <div id="jstree_demo_div">
-        <li>
-          download uncompressed files
-                <ul id="file-list" class="empty"></ul>
-      </li>
-   </div> -->
     <div id="list-container">
+        
+        <a id="download-btn">Download </a>
+        
         <li>
-            <span class="form-label">download uncompressed files</span>
+            <span class="form-label"></span>
           <div id="jstree_demo_div">
-                <ul id="file-list" class="empty">
+                <ul >
+                  <li>
+                        <ul id="file-list" class="empty">
+                            <li></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
       </li>
@@ -80,15 +83,6 @@
     <script type="text/javascript" src="tryingzip.js"></script>
     <script type="text/javascript" src="tryingzip2.js"></script>
 	
-    <script>
-        // $(function () {$('#jstree_demo_div').jstree();  });
-        $('#jstree_demo_div').on("changed.jstree", function (e, data) {
-        // console.log(data.selected);
-        // console.log(e)
-        });
-    </script>
-
-
 </body>
 
 </html>
