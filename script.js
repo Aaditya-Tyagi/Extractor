@@ -8,26 +8,32 @@ document.querySelector(".more_btn").addEventListener("click",(e)=>{
 });
 
 
-var dragDOM=document.querySelector(".drag-drop");
-dragDOM.addEventListener("dragover",function(e){
-      e.preventDefault();
-      dragDOM.classList.remove("drag-drop");
-      dragDOM.classList.add("dropping"); 
-      console.log("entering!");
-});
+$(document).ready(()=>{
+  var dragDOM=document.querySelector(".drag-drop");
+  dragDOM.addEventListener("dragover",function(e){
+        e.preventDefault();
+        dragDOM.classList.remove("drag-drop");
+        dragDOM.classList.add("dropping"); 
+        console.log("entering!");
+  });
+  
+  dragDOM.addEventListener("dragleave",function(){
+      dragDOM.classList.remove("dropping");
+      dragDOM.classList.add("drag-drop");
+       console.log("leaving!")
+  });
+  
+  dragDOM.addEventListener("drop",(e)=>{
+     e.preventDefault();
+     const droppedfile=e.dataTransfer.files;
+     const type=droppedfile.type;
+    //  console.log(droppedfile[0]);
+     selectFile(droppedfile[0])
+     }
+  )
+  // check()
+})
 
-dragDOM.addEventListener("dragleave",function(){
-    dragDOM.classList.remove("dropping");
-    dragDOM.classList.add("drag-drop");
-     console.log("leaving!")
-});
-dragDOM.addEventListener("drop",(e)=>{
-   e.preventDefault();
-   const droppedfile=e.dataTransfer.files;
-   const type=droppedfile.type;
-   console.log(droppedfile);
-   }
-)
 window.addEventListener("dragover",function(e){
     e = e || event;
    // console to clog event for debugging console.log();

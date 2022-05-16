@@ -1,6 +1,5 @@
 /* globals zip, document, URL, MouseEvent, AbortController, alert */
 
-(() => {
 
 	const INFLATE_IMPLEMENTATIONS = {
 		"zip.js": ["z-worker.js"],
@@ -21,7 +20,6 @@
 
 	})();
 
-	(() => {
 
 		const appContainer = document.getElementById("list-container");
 		const fileInput = document.getElementById("fileinput");
@@ -33,13 +31,18 @@
 		let entries;
 		let selectedFile;
 		//passwordInput.onchange = async () => fileList.querySelectorAll("a[download]").forEach(anchor => anchor.download = "");
-		fileInput.onchange = selectFile;
+		fileInput.onchange = selectFileUpload;
 		encodingInput.onchange = selectEncoding;
 		//inflateImplementationInput.onchange = selectInflateImplementation;
 		appContainer.onclick = downloadFile;
 		fileInputButton.onclick = () => fileInput.dispatchEvent(new MouseEvent("click"));
 	//	selectInflateImplementation();
-		
+		function check(){
+			console.log("check")
+		}
+		function selectFileUpload(){
+			selectFile(fileInput.files[0])
+		}
 		async function downloadFile(event) {
 			const target = event.target;
 			
@@ -61,11 +64,11 @@
 			}
 		}
 
-		async function selectFile() {
+		async function selectFile(file) {
 			try {
 				fileInputButton.disabled = true;
 				encodingInput.disabled = true;
-				selectedFile = fileInput.files[0];
+				selectedFile = file;
 				await loadFiles();
 			} catch (error) {
 				alert(error);
@@ -175,9 +178,3 @@
 			}
 		}
 	
-			
-
-		
-	})();
-
-})();
