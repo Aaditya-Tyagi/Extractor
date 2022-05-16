@@ -157,3 +157,7 @@ var linkfiles=document.querySelector("#linkfiles");
 linkfiles.addEventListener("click",(e)=>{
   var file=prompt("link to the file:")
 })
+
+document.querySelector("#takebackbtn").addEventListener("click",()=>{
+  window.location.reload();
+})
